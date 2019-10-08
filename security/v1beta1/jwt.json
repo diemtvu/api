@@ -6,8 +6,8 @@
   },
   "components": {
     "schemas": {
-      "istio.security.v1beta1.JwtPolicy": {
-        "description": "JwtPolicys TODO",
+      "istio.security.v1beta1.JWTPolicy": {
+        "description": "JWTPolicy defines what JWT can be accepted (and how to validate them) at the selected workloads.",
         "type": "object",
         "properties": {
           "selector": {

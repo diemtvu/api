@@ -7,8 +7,12 @@
   "components": {
     "schemas": {
       "istio.security.v1beta1.MTLSPolicy": {
+        "description": "MTLSPolicy defines the mTLS policy for the selected workloads.",
         "type": "object",
         "properties": {
+          "selector": {
+            "$ref": "#/components/schemas/istio.type.v1beta1.WorkloadSelector"
+          },
           "mode": {
             "$ref": "#/components/schemas/istio.security.v1beta1.MTLSPolicy.Mode"
           }
@@ -23,6 +27,20 @@
           "STRICT"
         ],
         "default": "NONE"
+      },
+      "istio.type.v1beta1.WorkloadSelector": {
+        "description": "Optional. Workload selector decides where to apply the JWT policy. If not set, the policy will be applied to all workloads in the same namespace as the policy.",
+        "type": "object",
+        "properties": {
+          "matchLabels": {
+            "description": "REQUIRED: One or more labels that indicate a specific set of pods/VMs on which a policy should be applied. The scope of label search is restricted to the configuration namespace in which the resource is present.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        }
       }
     }
   }

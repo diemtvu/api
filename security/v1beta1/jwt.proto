@@ -19,8 +19,8 @@ package istio.security.v1beta1;
 
 option go_package="istio.io/api/security/v1beta1";
 
-// JwtPolicys TODO
-message JwtPolicy {
+// JWTPolicy defines what JWT can be accepted (and how to validate them) at the selected workloads.
+message JWTPolicy {
   // Optional. Workload selector decides where to apply the JWT policy.
   // If not set, the policy will be applied to all workloads in the
   // same namespace as the policy.

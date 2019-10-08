@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='istio.security.v1beta1',
   syntax='proto3',
   serialized_options=_b('Z\035istio.io/api/security/v1beta1'),
-  serialized_pb=_b('\n\x1bsecurity/v1beta1/mtls.proto\x12\x16istio.security.v1beta1\x1a\x1btype/v1beta1/selector.proto\"q\n\nMTLSPolicy\x12\x35\n\x04mode\x18\x01 \x01(\x0e\x32\'.istio.security.v1beta1.MTLSPolicy.Mode\",\n\x04Mode\x12\x08\n\x04NONE\x10\x00\x12\x0e\n\nPERMISSIVE\x10\x01\x12\n\n\x06STRICT\x10\x02\x42\x1fZ\x1distio.io/api/security/v1beta1b\x06proto3')
+  serialized_pb=_b('\n\x1bsecurity/v1beta1/mtls.proto\x12\x16istio.security.v1beta1\x1a\x1btype/v1beta1/selector.proto\"\xa9\x01\n\nMTLSPolicy\x12\x36\n\x08selector\x18\x01 \x01(\x0b\x32$.istio.type.v1beta1.WorkloadSelector\x12\x35\n\x04mode\x18\x02 \x01(\x0e\x32\'.istio.security.v1beta1.MTLSPolicy.Mode\",\n\x04Mode\x12\x08\n\x04NONE\x10\x00\x12\x0e\n\nPERMISSIVE\x10\x01\x12\n\n\x06STRICT\x10\x02\x42\x1fZ\x1distio.io/api/security/v1beta1b\x06proto3')
   ,
   dependencies=[type_dot_v1beta1_dot_selector__pb2.DESCRIPTOR,])
 
@@ -48,8 +48,8 @@ _MTLSPOLICY_MODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=153,
-  serialized_end=197,
+  serialized_start=210,
+  serialized_end=254,
 )
 _sym_db.RegisterEnumDescriptor(_MTLSPOLICY_MODE)
 
@@ -62,8 +62,15 @@ _MTLSPOLICY = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='mode', full_name='istio.security.v1beta1.MTLSPolicy.mode', index=0,
-      number=1, type=14, cpp_type=8, label=1,
+      name='selector', full_name='istio.security.v1beta1.MTLSPolicy.selector', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mode', full_name='istio.security.v1beta1.MTLSPolicy.mode', index=1,
+      number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -81,10 +88,11 @@ _MTLSPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=84,
-  serialized_end=197,
+  serialized_start=85,
+  serialized_end=254,
 )
 
+_MTLSPOLICY.fields_by_name['selector'].message_type = type_dot_v1beta1_dot_selector__pb2._WORKLOADSELECTOR
 _MTLSPOLICY.fields_by_name['mode'].enum_type = _MTLSPOLICY_MODE
 _MTLSPOLICY_MODE.containing_type = _MTLSPOLICY
 DESCRIPTOR.message_types_by_name['MTLSPolicy'] = _MTLSPOLICY

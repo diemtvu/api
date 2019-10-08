@@ -19,7 +19,13 @@ package istio.security.v1beta1;
 
 option go_package="istio.io/api/security/v1beta1";
 
+// MTLSPolicy defines the mTLS policy for the selected workloads.
 message MTLSPolicy {
+  // Optional. Workload selector decides where to apply the JWT policy.
+  // If not set, the policy will be applied to all workloads in the
+  // same namespace as the policy.
+  istio.type.v1beta1.WorkloadSelector selector = 1;
+
   // Defines the acceptable connection TLS mode.
   enum Mode {
     // Connection in plaintext.
@@ -32,5 +38,5 @@ message MTLSPolicy {
     STRICT = 2;
   };
   // Defines the mode of mTLS authentication.
-  Mode mode = 1;
+  Mode mode = 2;
 }

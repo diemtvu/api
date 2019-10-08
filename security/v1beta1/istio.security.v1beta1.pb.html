@@ -311,9 +311,9 @@ query parameter name.</p>
 </tbody>
 </table>
 </section>
-<h2 id="JwtPolicy">JwtPolicy</h2>
+<h2 id="JWTPolicy">JWTPolicy</h2>
 <section>
-<p>JwtPolicys TODO</p>
+<p>JWTPolicy defines what JWT can be accepted (and how to validate them) at the selected workloads.</p>
 
 <table class="message-fields">
 <thead>
@@ -324,7 +324,7 @@ query parameter name.</p>
 </tr>
 </thead>
 <tbody>
-<tr id="JwtPolicy-selector">
+<tr id="JWTPolicy-selector">
 <td><code>selector</code></td>
 <td><code><a href="https://istio.io/docs/reference/config/type/v1beta1/workload-selector.html#WorkloadSelector">istio.type.v1beta1.WorkloadSelector</a></code></td>
 <td>
@@ -334,7 +334,7 @@ same namespace as the policy.</p>
 
 </td>
 </tr>
-<tr id="JwtPolicy-rules">
+<tr id="JWTPolicy-rules">
 <td><code>rules</code></td>
 <td><code><a href="#JWT">JWT[]</a></code></td>
 <td>
@@ -347,6 +347,8 @@ same namespace as the policy.</p>
 </section>
 <h2 id="MTLSPolicy">MTLSPolicy</h2>
 <section>
+<p>MTLSPolicy defines the mTLS policy for the selected workloads.</p>
+
 <table class="message-fields">
 <thead>
 <tr>
@@ -356,6 +358,16 @@ same namespace as the policy.</p>
 </tr>
 </thead>
 <tbody>
+<tr id="MTLSPolicy-selector">
+<td><code>selector</code></td>
+<td><code><a href="https://istio.io/docs/reference/config/type/v1beta1/workload-selector.html#WorkloadSelector">istio.type.v1beta1.WorkloadSelector</a></code></td>
+<td>
+<p>Optional. Workload selector decides where to apply the JWT policy.
+If not set, the policy will be applied to all workloads in the
+same namespace as the policy.</p>
+
+</td>
+</tr>
 <tr id="MTLSPolicy-mode">
 <td><code>mode</code></td>
 <td><code><a href="#MTLSPolicy-Mode">MTLSPolicy.Mode</a></code></td>
