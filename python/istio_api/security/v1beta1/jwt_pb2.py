@@ -13,7 +13,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from type.v1beta1 import selector_pb2 as type_dot_v1beta1_dot_selector__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,49 +20,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='istio.security.v1beta1',
   syntax='proto3',
   serialized_options=_b('Z\035istio.io/api/security/v1beta1'),
-  serialized_pb=_b('\n\x1asecurity/v1beta1/jwt.proto\x12\x16istio.security.v1beta1\x1a\x1btype/v1beta1/selector.proto\"o\n\tJWTPolicy\x12\x36\n\x08selector\x18\x01 \x01(\x0b\x32$.istio.type.v1beta1.WorkloadSelector\x12*\n\x05rules\x18\x02 \x03(\x0b\x32\x1b.istio.security.v1beta1.JWT\"q\n\x03JWT\x12\x0e\n\x06issuer\x18\x01 \x01(\t\x12\x11\n\taudiences\x18\x02 \x03(\t\x12\x10\n\x08jwks_uri\x18\x03 \x01(\t\x12\x0c\n\x04jwks\x18\n \x01(\t\x12\x13\n\x0bjwt_headers\x18\x06 \x03(\t\x12\x12\n\njwt_params\x18\x07 \x03(\tB\x1fZ\x1distio.io/api/security/v1beta1b\x06proto3')
-  ,
-  dependencies=[type_dot_v1beta1_dot_selector__pb2.DESCRIPTOR,])
-
-
-
-
-_JWTPOLICY = _descriptor.Descriptor(
-  name='JWTPolicy',
-  full_name='istio.security.v1beta1.JWTPolicy',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='selector', full_name='istio.security.v1beta1.JWTPolicy.selector', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rules', full_name='istio.security.v1beta1.JWTPolicy.rules', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=83,
-  serialized_end=194,
+  serialized_pb=_b('\n\x1asecurity/v1beta1/jwt.proto\x12\x16istio.security.v1beta1\"q\n\x03JWT\x12\x0e\n\x06issuer\x18\x01 \x01(\t\x12\x11\n\taudiences\x18\x02 \x03(\t\x12\x10\n\x08jwks_uri\x18\x03 \x01(\t\x12\x0c\n\x04jwks\x18\n \x01(\t\x12\x13\n\x0bjwt_headers\x18\x06 \x03(\t\x12\x12\n\njwt_params\x18\x07 \x03(\tB\x1fZ\x1distio.io/api/security/v1beta1b\x06proto3')
 )
+
+
 
 
 _JWT = _descriptor.Descriptor(
@@ -127,22 +87,12 @@ _JWT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=196,
-  serialized_end=309,
+  serialized_start=54,
+  serialized_end=167,
 )
 
-_JWTPOLICY.fields_by_name['selector'].message_type = type_dot_v1beta1_dot_selector__pb2._WORKLOADSELECTOR
-_JWTPOLICY.fields_by_name['rules'].message_type = _JWT
-DESCRIPTOR.message_types_by_name['JWTPolicy'] = _JWTPOLICY
 DESCRIPTOR.message_types_by_name['JWT'] = _JWT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-JWTPolicy = _reflection.GeneratedProtocolMessageType('JWTPolicy', (_message.Message,), {
-  'DESCRIPTOR' : _JWTPOLICY,
-  '__module__' : 'security.v1beta1.jwt_pb2'
-  # @@protoc_insertion_point(class_scope:istio.security.v1beta1.JWTPolicy)
-  })
-_sym_db.RegisterMessage(JWTPolicy)
 
 JWT = _reflection.GeneratedProtocolMessageType('JWT', (_message.Message,), {
   'DESCRIPTOR' : _JWT,

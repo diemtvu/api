@@ -4,7 +4,7 @@ description: Configuration for access control on workloads.
 location: https://istio.io/docs/reference/config/security/v1beta1/authorization-policy.html
 layout: protoc-gen-docs
 generator: protoc-gen-docs
-number_of_entries: 12
+number_of_entries: 13
 ---
 <p>Istio Authorization Policy enables access control on workloads in the mesh.</p>
 
@@ -219,6 +219,7 @@ Yes
 <th>Field</th>
 <th>Type</th>
 <th>Description</th>
+<th>Required</th>
 </tr>
 </thead>
 <tbody>
@@ -233,6 +234,9 @@ Usually a URL or an email address.</p>
 <p>Example: https://securetoken.google.com
 Example: 1234567-compute@developer.gserviceaccount.com</p>
 
+</td>
+<td>
+No
 </td>
 </tr>
 <tr id="JWT-audiences">
@@ -254,6 +258,9 @@ audiences will be accepted.</p>
 </code></pre>
 
 </td>
+<td>
+No
+</td>
 </tr>
 <tr id="JWT-jwks_uri">
 <td><code>jwksUri</code></td>
@@ -273,6 +280,9 @@ Google service account).</p>
 <p>Note: Only one of jwks_uri and jwks should be used.</p>
 
 </td>
+<td>
+No
+</td>
 </tr>
 <tr id="JWT-jwks">
 <td><code>jwks</code></td>
@@ -283,6 +293,9 @@ See https://auth0.com/docs/jwks.</p>
 
 <p>Note: Only one of jwks_uri and jwks should be used.</p>
 
+</td>
+<td>
+No
 </td>
 </tr>
 <tr id="JWT-jwt_headers">
@@ -296,6 +309,9 @@ header name.</p>
 format will be x-goog-iap-jwt-assertion: <JWT>.</p>
 
 </td>
+<td>
+No
+</td>
 </tr>
 <tr id="JWT-jwt_params">
 <td><code>jwtParams</code></td>
@@ -307,39 +323,8 @@ query parameter name.</p>
 <p>For example, <code>query=jwt_token</code>.</p>
 
 </td>
-</tr>
-</tbody>
-</table>
-</section>
-<h2 id="JWTPolicy">JWTPolicy</h2>
-<section>
-<p>JWTPolicy defines what JWT can be accepted (and how to validate them) at the selected workloads.</p>
-
-<table class="message-fields">
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr id="JWTPolicy-selector">
-<td><code>selector</code></td>
-<td><code><a href="https://istio.io/docs/reference/config/type/v1beta1/workload-selector.html#WorkloadSelector">istio.type.v1beta1.WorkloadSelector</a></code></td>
 <td>
-<p>Optional. Workload selector decides where to apply the JWT policy.
-If not set, the policy will be applied to all workloads in the
-same namespace as the policy.</p>
-
-</td>
-</tr>
-<tr id="JWTPolicy-rules">
-<td><code>rules</code></td>
-<td><code><a href="#JWT">JWT[]</a></code></td>
-<td>
-<p>A list of rules to validate JWT.</p>
-
+No
 </td>
 </tr>
 </tbody>
@@ -355,6 +340,7 @@ same namespace as the policy.</p>
 <th>Field</th>
 <th>Type</th>
 <th>Description</th>
+<th>Required</th>
 </tr>
 </thead>
 <tbody>
@@ -367,6 +353,9 @@ If not set, the policy will be applied to all workloads in the
 same namespace as the policy.</p>
 
 </td>
+<td>
+No
+</td>
 </tr>
 <tr id="MTLSPolicy-mode">
 <td><code>mode</code></td>
@@ -374,6 +363,9 @@ same namespace as the policy.</p>
 <td>
 <p>Defines the mode of mTLS authentication.</p>
 
+</td>
+<td>
+No
 </td>
 </tr>
 </tbody>
@@ -478,6 +470,71 @@ No
 
 <p>If not set, any path is allowed. Must be used only with HTTP.</p>
 
+</td>
+<td>
+No
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<h2 id="RequestAuthentication">RequestAuthentication</h2>
+<section>
+<p>RequestAuthentication defines what request authentication methods should be supported by an workload.</p>
+
+<table class="message-fields">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr id="RequestAuthentication-selector">
+<td><code>selector</code></td>
+<td><code><a href="https://istio.io/docs/reference/config/type/v1beta1/workload-selector.html#WorkloadSelector">istio.type.v1beta1.WorkloadSelector</a></code></td>
+<td>
+<p>Optional. Workload selector decides where to apply the JWT policy.
+If not set, the policy will be applied to all workloads in the
+same namespace as the policy.</p>
+
+</td>
+<td>
+No
+</td>
+</tr>
+<tr id="RequestAuthentication-rules">
+<td><code>rules</code></td>
+<td><code><a href="#RequestAuthentication-Rule">RequestAuthentication.Rule[]</a></code></td>
+<td>
+<p>A list of rules to validate JWT.</p>
+
+</td>
+<td>
+No
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<h2 id="RequestAuthentication-Rule">RequestAuthentication.Rule</h2>
+<section>
+<table class="message-fields">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr id="RequestAuthentication-Rule-jwt">
+<td><code>jwt</code></td>
+<td><code><a href="#JWT">JWT</a></code></td>
+<td>
 </td>
 <td>
 No
